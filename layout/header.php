@@ -1,63 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>AEEK LEARN - <?=ucfirst($page)?></title>
-    <link rel="icon" href="<?=$asset?>/media/logoAEEK.png" type="image/x-icon">
-    <meta name="robots" content="noindex">
-    <link type="text/css" href="<?=$asset?>/assets/vendor/perfect-scrollbar.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/app.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/app.rtl.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-material-icons.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-fontawesome-free.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-ion-rangeslider.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/vendor-ion-rangeslider.rtl.css" rel="stylesheet">
-    <link type="text/css" href="<?=$asset?>/assets/css/padding.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizo HTML Template - V.6</title>
+    <link rel="stylesheet" href="<?=$asset?>/assets/news/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&amp;family=Poppins:wght@700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=$asset?>/assets/news/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=$asset?>/assets/news/css/animate.min.css">
+    <link rel="stylesheet" href="<?=$asset?>/assets/news/css/style.css">
+    <link rel="stylesheet" href="<?=$asset?>/assets/news/css/font-size.css">
     <style>
-        [dir=ltr] .mdk-header-layout__content {
-            z-index: 999999 !important;
-            position: fixed !important;
+        .box{
+            box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
+            background: #fff;
+            border-radius: 6px;
+        }
+        .box p{
+            line-height: 1.3;
+        }
+        .box h5{
+            line-height: 1.3;
+        }
+        .box-img img{
+            object-fit: cover;
+            height: 150px;
+            border-radius: 6px 6px 0 0;
             width: 100% !important;
         }
+        .box-content{
+            padding: 10px;
+        }
+        .text-right{
+            text-align: right;
+        }
+        .myBtn a{
+            background: #e1330a59;
+            color: #e1330a;
+            padding: 5px 20px;
+            border-radius: 6px;
+            width : 100%;
+        }
+        .myBtn a:hover{
+            background: #e1330a;
+            color: #fff;
+        }
+
+
+
+
+
     </style>
 </head>
-
-<body class="layout-fluid layout-sticky-subnav">
-<div class="preloader"></div>
-<div class="mdk-header-layout js-mdk-header-layout">
-    <div class="mdk-header-layout__content page">
-        <div class="page__header page__header-nav mb-0">
-            <div class="container-fluid page__container">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="navbar navbar-secondary navbar-light navbar-expand-sm p-0 d-none d-md-flex" id="secondaryNavbar">
-                            <a class="navbar-brand" href="<?=$domaine?>"><img src="<?=$asset?>/media/logoAEEK.png" width="50" alt="logo" class="img-responsive"></a>
-                            <ul class="nav navbar-nav">
-                                <li class="nav-item"> <a href="<?=$domaine?>" class="nav-link">Accueil</a> </li>
-                                <li class="nav-item"> <a href="<?=$domaine?>/" class="nav-link">Cours</a> </li>
-                                <li class="nav-item"> <a href="<?=$domaine?>/" class="nav-link">Evaluation</a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle pb-0 pt20" data-toggle="dropdown">Mon compte</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="<?=$domaine?>/">Profil</a>
-                                    <a class="dropdown-item" href="<?=$domaine?>/">Mot de passe</a>
-                                    <a class="dropdown-item" href="<?=$domaine?>/">Mes devoirs</a>
-
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+<div class="wrapper overflow-hidden">
