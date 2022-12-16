@@ -11,30 +11,20 @@ require_once $layout.'/header.php';
                     </a>
                 </div>
             </div>
-            <div class="col-sm-6 d-none d-sm-block">
-                <div class="count_box d-flex float-end pt-5 pe-5">
-                    <div class="count_clock countdown_timer d-flex align-items-center pe-5 me-3" data-countdown="2022/10/24">
-                    </div>
-                    <div class="count_progress clip-1">
-                     <span class="progress-left">
-                        <span class="progress_bar"></span>
-                     </span>
-                     <span class="progress-right">
-                        <span class="progress_bar"></span>
-                     </span>
-                        <div class="progress-value">
-                            <div id="value">100%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
-    <form class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST" action="https://www.jthemes.net/themes/html/quizo/thankyou/index-3.html">
+    <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST" action="https://www.jthemes.net/themes/html/quizo/thankyou/index-3.html">
+   <h2 class="text-center mt-5" style="position: relative">
+           <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
+           <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
+           <input type="hidden" name="tim" id="tim" value="01"/>
+
+
+   </h2>
     <div class="multisteps_form_panel step">
         <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms">What kind of services you are quiz?</h1>
+            <h1 class="animate__animated animate__fadeInRight animate_25ms font-27">What kind of services you are quiz?</h1>
         </div>
         <div class="question_number text-center text-uppercase text-white">
             <span class="rounded-pill">Question 1 to 5</span>
@@ -250,3 +240,66 @@ require_once $layout.'/header.php';
     </div>
 
 <?php require_once $layout.'/footer.php';?>
+<script language="javascript">
+
+    var mins;
+    var secs;
+    const tim = String($('#tim').val());
+    function cd() {
+        mins = 1 * m(tim); // changer les minutes ici
+        secs = 0 + s(":01"); // changez les secondes ici (ajoutez toujours une seconde supplémentaire à votre total)
+        redo();
+    }
+
+    function m(obj) {
+        for(var i = 0; i < obj.length; i++) {
+            if(obj.substring(i, i + 1) == ":")
+                break;
+        }
+        return(obj.substring(0, i));
+    }
+
+    function s(obj) {
+        for(var i = 0; i < obj.length; i++) {
+            if(obj.substring(i, i + 1) == ":")
+                break;
+        }
+        return(obj.substring(i + 1, obj.length));
+    }
+
+    function dis(mins,secs) {
+        var disp;
+        if(mins <= 9) {
+            disp = " 0";
+        } else {
+            disp = " ";
+        }
+        disp += mins + ":";
+        if(secs <= 9) {
+            disp += "0" + secs;
+        } else {
+            disp += secs;
+        }
+        return(disp);
+    }
+
+    function redo() {
+        secs--;
+        if(secs == -1) {
+            secs = 59;
+            mins--;
+        }
+        document.cd.disp.value = dis(mins,secs); // setup additional displays here.
+        if((mins == 0) && (secs == 0)) {
+            window.alert("Time is up. Press OK to continue."); // change timeout message as required
+            // window.location = "yourpage.htm" // redirects to specified page once timer ends and ok button is pressed
+        } else {
+            cd = setTimeout("redo()",1000);
+        }
+    }
+
+    function init() {
+        cd();
+    }
+    window.onload = init;
+</script>

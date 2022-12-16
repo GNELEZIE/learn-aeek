@@ -57,7 +57,7 @@ $(function(){
       var $this = $(this), finalDate = $(this).data('countdown');
       $this.countdown(finalDate, function(event) {
         var $this = $(this).html(event.strftime(''
-        +'<img  src="../assets/images/watch.png" alt="image-not-found">'
+        +'<i class="fa fa-clock myClock"></i> '
         + '<span class="pe-5 counter">%M:%S</span>'));
       });
     });
@@ -67,10 +67,10 @@ $(function(){
 
 // Progress bar counter ======================
 function animateValue(obj, start, end, duration) {
-  let startTimestamp = null;
-  const step = (timestamp) => {
+  var startTimestamp = null;
+  const step = function(timestamp) {
     if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const progress = Math.min((timestamp - startTimestamp) / duration, 5);
     obj.innerHTML = Math.floor(progress * (end - start) + start);
     if (progress < 1) {
       window.requestAnimationFrame(step);

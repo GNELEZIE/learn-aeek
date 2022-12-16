@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="<?=$asset?>/assets/news/css/style.css">
     <link rel="stylesheet" href="<?=$asset?>/assets/news/css/font-size.css">
     <style>
+        .container{
+            max-width: 1320px !important;
+        }
         .box{
             box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
             background: #fff;
@@ -46,7 +49,32 @@
             background: #e1330a;
             color: #fff;
         }
+        .w-20{
+            width: 20% !important;
+        }
+        .w-30{
+         width: 30% !important;
+        }
+        .myClock{
+            color: #f77523;
+            font-size: 33px;
+        }
 
+        .text-chrono{
+            color: #fd5b2c;
+            background: #fff;
+            padding: 10px 2px;
+            border-radius: 6px;
+            box-shadow: rgb(0 0 0 / 24%) 0 3px 8px;
+            text-align: center;
+            border: 0;
+            font-weight: 700;
+        }
+.chrono-img{
+    position: absolute;
+    left: 363px;
+    top: 10px;
+}
 
 
 
