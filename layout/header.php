@@ -76,8 +76,18 @@
     top: 10px;
 }
 
+        .alert {
+            position: relative;
+            padding: 7px 10px;
+        }
+        .question_title h1 {
+            font-weight: 800;
+            padding: 10px 0 10px 0 !important;
+        }
+        .next_btn{
 
-
+            padding: 7px 35px !important;
+        }
 
     </style>
 </head>

@@ -14,69 +14,72 @@ require_once $layout.'/header.php';
         </div>
     </div>
     <div class="container">
-    <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST" action="https://www.jthemes.net/themes/html/quizo/thankyou/index-3.html">
-   <h2 class="text-center mt-5" style="position: relative">
-           <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
-           <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
-           <input type="hidden" name="tim" id="tim" value="01"/>
+    <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST">
+    <h2 class="text-center mt-5" style="position: relative">
+        <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
+        <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
+        <input type="hidden" name="tim" id="tim" value="2"/>
+    </h2>
+        <div class="row">
+            <div class="col-md-6 offset-3 avertis">
 
-
-   </h2>
-    <div class="multisteps_form_panel step">
-        <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms font-27">What kind of services you are quiz?</h1>
+            </div>
         </div>
-        <div class="question_number text-center text-uppercase text-white">
-            <span class="rounded-pill">Question 1 to 5</span>
+    <div class="multisteps_form_panel step">
+        <div class="question_title text-center ">
+            <h1 class="animate__animated animate__fadeInRight animate_25ms font-25">Que signifie l'abreviation AEEK?</h1>
+        </div>
+        <div class="question_number text-center  text-white">
+            <span class="rounded-pill">Question 1 sur 2</span>
         </div>
         <div class="row pt-5 mt-4 form_items">
             <div class="col-6">
                 <ul class="list-unstyled p-0">
                     <li class="active step_1 animate__animated animate__fadeInRight animate_50ms">
-                        <input id="opt_1" type="radio" name="stp_1_select_option" value="Well organized and Easy">
-                        <label for="opt_1">Well organized and Easy</label>
+                        <input id="opt_1" type="radio" name="stp_1_select_option" value="1">
+                        <label for="opt_1" class="font-17">Association des Eleveurs Europeen de Kassere</label>
                     </li>
                 </ul>
             </div>
             <div class="col-6">
                 <ul class="list-unstyled p-0">
                     <li class="step_1 animate__animated animate__fadeInRight animate_100ms">
-                        <input id="opt_2" type="radio" name="stp_1_select_option" value="Transition Between Two">
-                        <label for="opt_2">Transition Between Two</label>
+                        <input id="opt_2" type="radio" name="stp_1_select_option" value="2">
+                        <label for="opt_2" class="font-17">Association des Entrepreneurs Europeen de Kassere</label>
                     </li>
                 </ul>
             </div>
             <div class="col-6">
                 <ul class="list-unstyled p-0">
                     <li class="step_1 animate__animated animate__fadeInRight animate_150ms">
-                        <input id="opt_3" type="radio" name="stp_1_select_option" value="Transitions are Shown">
-                        <label for="opt_3">Transitions are Shown</label>
+                        <input id="opt_3" type="radio" name="stp_1_select_option" value="3">
+                        <label for="opt_3" class="font-17">Association des Elèves et Etudiants de Kasséré</label>
                     </li>
                 </ul>
             </div>
             <div class="col-6">
                 <ul class="list-unstyled p-0">
                     <li class="step_1 animate__animated animate__fadeInRight animate_200ms">
-                        <input id="opt_4" type="radio" name="stp_1_select_option" value="Generate a nice Color">
-                        <label for="opt_4">Generate a nice Color</label>
+                        <input id="opt_4" type="radio" name="stp_1_select_option" value="4">
+                        <label for="opt_4" class="font-17">Association des Elèves ou Etudiants de Kasséré</label>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="multisteps_form_panel step">
-        <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms">The iron ore mined at Bailadila is mostly</h1>
+        <div class="question_title text-center ">
+            <h1 class="animate__animated animate__fadeInRight animate_25ms  font-25">En quelle année l'AEEK a été crée ?</h1>
         </div>
-        <div class="question_number text-center text-uppercase text-white">
-            <span class="rounded-pill">Question 2 to 5</span>
+        <div class="question_number text-center  text-white">
+            <span class="rounded-pill">Question 2 sur 2</span>
         </div>
         <div class="row pt-5 mt-4 form_items">
             <div class="col-6">
                 <ul class="list-unstyled p-0">
                     <li class="step_2 animate__animated animate__fadeInRight animate_50ms">
                         <input id="opt_5" type="radio" name="stp_2_select_option" value="haematite">
-                        <label for="opt_5">haematite</label>
+                        <label for="opt_5" class="font-17">1996</label>
                     </li>
                 </ul>
             </div>
@@ -84,7 +87,7 @@ require_once $layout.'/header.php';
                 <ul class="list-unstyled p-0">
                     <li class="step_2 animate__animated animate__fadeInRight animate_100ms">
                         <input id="opt_6" type="radio" name="stp_2_select_option" value="limonite">
-                        <label for="opt_6">limonite</label>
+                        <label for="opt_6" class="font-17">19960</label>
                     </li>
                 </ul>
             </div>
@@ -92,7 +95,7 @@ require_once $layout.'/header.php';
                 <ul class="list-unstyled p-0">
                     <li class="step_2 animate__animated animate__fadeInRight animate_150ms">
                         <input id="opt_7" type="radio" name="stp_2_select_option" value="siderite">
-                        <label for="opt_7">siderite</label>
+                        <label for="opt_7" class="font-17">2000</label>
                     </li>
                 </ul>
             </div>
@@ -100,146 +103,167 @@ require_once $layout.'/header.php';
                 <ul class="list-unstyled p-0">
                     <li class="step_2 animate__animated animate__fadeInRight animate_200ms">
                         <input id="opt_8" type="radio" name="stp_2_select_option" value="magnetic">
-                        <label for="opt_8">magnetic</label>
+                        <label for="opt_8" class="font-17">1978</label>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="multisteps_form_panel step">
-        <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms">The leading state in producing paper is</h1>
-        </div>
-        <div class="question_number text-center text-uppercase text-white">
-            <span class="rounded-pill">Question 3 to 5</span>
-        </div>
-        <div class="row pt-5 mt-4 form_items">
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_3 animate__animated animate__fadeInRight animate_50ms">
-                        <input id="opt_9" type="radio" name="stp_3_select_option" value="West Bengal">
-                        <label for="opt_9">West Bengal</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_3 animate__animated animate__fadeInRight animate_100ms">
-                        <input id="opt_10" type="radio" name="stp_3_select_option" value="Kerala">
-                        <label for="opt_10">Kerala</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_3 animate__animated animate__fadeInRight animate_150ms">
-                        <input id="opt_11" type="radio" name="stp_3_select_option" value="Bihar">
-                        <label for="opt_11">Bihar</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_3 animate__animated animate__fadeInRight animate_200ms">
-                        <input id="opt_12" type="radio" name="stp_3_select_option" value="Orissa">
-                        <label for="opt_12">Orissa</label>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="multisteps_form_panel step">
-        <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms">The largest dune files are found in</h1>
-        </div>
-        <div class="question_number text-center text-uppercase text-white">
-            <span class="rounded-pill">Question 4 to 5</span>
-        </div>
-        <div class="row pt-5 mt-4 form_items">
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_4 animate__animated animate__fadeInRight animate_50ms">
-                        <input id="opt_13" type="radio" name="stp_4_select_option" value="West Bengal">
-                        <label for="opt_13">West Bengal</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_4 animate__animated animate__fadeInRight animate_100ms">
-                        <input id="opt_14" type="radio" name="stp_4_select_option" value="Kerala">
-                        <label for="opt_14">Kerala</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_4 animate__animated animate__fadeInRight animate_150ms">
-                        <input id="opt_15" type="radio" name="stp_4_select_option" value="Bihar">
-                        <label for="opt_15">Bihar</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_4 animate__animated animate__fadeInRight animate_200ms">
-                        <input id="opt_16" type="radio" name="stp_4_select_option" value="Orissa">
-                        <label for="opt_16">Orissa</label>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="multisteps_form_panel step">
-        <div class="question_title text-center text-uppercase">
-            <h1 class="animate__animated animate__fadeInRight animate_25ms">The least explosive type of volcano is called</h1>
-        </div>
-        <div class="question_number text-center text-uppercase text-white">
-            <span class="rounded-pill">Question 5 to 5</span>
-        </div>
-        <div class="row pt-5 mt-4 form_items">
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_5 animate__animated animate__fadeInRight animate_50ms">
-                        <input id="opt_17" type="radio" name="stp_5_select_option" value="Basalt plateau">
-                        <label for="opt_17">Basalt plateau</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_5 animate__animated animate__fadeInRight animate_100ms">
-                        <input id="opt_18" type="radio" name="stp_5_select_option" value="Cinder cone">
-                        <label for="opt_18">Cinder cone</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_5 animate__animated animate__fadeInRight animate_150ms">
-                        <input id="opt_19" type="radio" name="stp_5_select_option" value="Shield volcanoes">
-                        <label for="opt_19">Shield volcanoes</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-6">
-                <ul class="list-unstyled p-0">
-                    <li class="step_5 animate__animated animate__fadeInRight animate_200ms">
-                        <input id="opt_20" type="radio" name="stp_5_select_option" value="Composite volcanoes">
-                        <label for="opt_20">Composite volcanoes</label>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
     <div class="form_btn">
-        <button type="button" class="prev_btn position-absolute text-uppercase border-0" id="prevBtn" onclick="nextPrev(-1)"> <span><i class="fas fa-arrow-left"></i></span> Back</button>
-        <button type="button" class="next_btn rounded-pill position-absolute text-uppercase text-white" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        <button type="button" class="prev_btn position-absolute  border-0" id="prevBtn" onclick="nextPrev(-1)"> <span><i class="fas fa-arrow-left"></i></span> Précédent</button>
+        <button type="button" class="next_btn rounded-pill position-absolute  text-white" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
     </div>
     </form>
     </div>
 
 <?php require_once $layout.'/footer.php';?>
+<script>
+
+    $(document).ready(function(){
+        $(".step_1").on('click', function(){
+            $(".step_1").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".step_2").on('click', function(){
+            $(".step_2").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".step_3").on('click', function(){
+            $(".step_3").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".step_4").on('click', function(){
+            $(".step_4").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".step_5").on('click', function(){
+            $(".step_5").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".step_6").on('click', function(){
+            $(".step_6").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        // =====================Progress Increment====================
+        $(document).on( 'click', '#nextBtn', function(){
+            var $progressbar = $('.count_progress');
+            for (var i = 1; i<4; i++) {
+                var className = 'clip-'+i;
+                if ($progressbar.hasClass(className)) {
+                    $progressbar.removeClass(className).addClass('clip-'+(i+1));
+                    break;
+                }
+            }
+        });
+        // =====================Progress Decrement====================
+        $(document).on( 'click', '#prevBtn', function(){
+            var $progressbar = $('.count_progress');
+            for (var i = 1; i<4; i++) {
+                var className = 'clip-'+i;
+                if ($progressbar.hasClass(className)) {
+                    $progressbar.removeClass(className).addClass('clip-'+(i+1));
+                    break;
+                }
+            }
+        });
+
+
+    });
+
+    // Progress bar counter ======================
+    function animateValue(obj, start, end, duration) {
+        var startTimestamp = null;
+        const step = function(timestamp) {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 5);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const obj = document.getElementById("value");
+    animateValue(obj, 100, 0, 90000);
+
+
+
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+        // This function will display the specified tab of the form ...
+        var x = document.getElementsByClassName("multisteps_form_panel");
+        x[n].style.display = "block";
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Terminer";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Suivant";
+        }
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("multisteps_form_panel");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form... :
+        if (currentTab >= x.length) {
+            //...the form gets submitted:
+            document.getElementById("wizard").submit();
+            return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("multisteps_form_panel");
+        y = x[currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class to the current step:
+        x[n].className += " active";
+    }
+
+
+</script>
 <script language="javascript">
 
     var mins;
@@ -293,7 +317,11 @@ require_once $layout.'/header.php';
         if((mins == 0) && (secs == 0)) {
             window.alert("Time is up. Press OK to continue."); // change timeout message as required
             // window.location = "yourpage.htm" // redirects to specified page once timer ends and ok button is pressed
-        } else {
+        }else {
+            cd = setTimeout("redo()",1000);
+        }
+        if((mins == 1) && (secs == 0)) {
+            $('.avertis').html('<div class="alert alert-danger m-0"> <p class="m-0 font-15">Il vous reste moins <b>d\'une minute</b> pour terminer !</p> </div>');
             cd = setTimeout("redo()",1000);
         }
     }
