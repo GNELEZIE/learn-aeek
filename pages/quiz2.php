@@ -14,21 +14,9 @@ require_once $layout.'/header.php';
         </div>
     </div>
     <div class="container">
-
     <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST">
-
-        <div class="row">
-            <div class="col-md-6 offset-3">
-                <h2>Notre obtenu</h2>
-                <h2><span>15/20</span></h2>
-            </div>
-        </div>
-
-
-
-
     <h2 class="text-center mt-5" style="position: relative">
-        <img src="<?/*=$asset*/?>/media/watch.png" class="chrono-img" alt=""/>
+        <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
         <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
         <input type="hidden" name="tim" id="tim" value="2"/>
     </h2>

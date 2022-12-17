@@ -53,7 +53,7 @@
             width: 20% !important;
         }
         .w-30{
-         width: 30% !important;
+            width: 30% !important;
         }
         .myClock{
             color: #f77523;
@@ -70,11 +70,11 @@
             border: 0;
             font-weight: 700;
         }
-.chrono-img{
-    position: absolute;
-    left: 363px;
-    top: 10px;
-}
+        .chrono-img{
+            position: absolute;
+            left: 363px;
+            top: 10px;
+        }
 
         .alert {
             position: relative;
@@ -87,6 +87,39 @@
         .next_btn{
 
             padding: 7px 35px !important;
+        }
+        .box-correction{
+            background: #fff;
+            border-radius: 15px;
+        }
+        .w-icon-reaction{
+            width: 130px;
+        }
+        .btn-green-transparent{
+            background: #00800052;
+            color: #008000;
+            padding: 6px 15px;
+            font-weight: 500;
+            border-radius: 6px;
+
+        }
+        .btn-green-transparent:hover{
+            background: #008000;
+            color: #fff;
+        }
+        .btn-blue-transparent{
+            background: rgba(10, 88, 202, 0.37);
+            color: #0a58ca;
+            padding: 6px 15px;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+        .btn-blue-transparent:hover{
+            background: #0a58ca;
+            color: #fff;
+        }
+        .w-85{
+            width: 85%;
         }
 
     </style>
