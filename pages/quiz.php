@@ -1,5 +1,13 @@
 <?php
+
+
+
+require_once $controller.'/quiz.save.php';
+$token = openssl_random_pseudo_bytes(16);
+$token = bin2hex($token);
+$_SESSION['myformkey'] = $token;
 require_once $layout.'/header.php';
+
 ?>
 
     <div class="container-fluid">
@@ -14,24 +22,110 @@ require_once $layout.'/header.php';
         </div>
     </div>
     <div class="container">
-
+    <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="post">
+    <h2 class="text-center mt-5" style="position: relative">
+        <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
+        <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
+        <input type="hidden" name="tim" id="tim" value="2"/>
+    </h2>
         <div class="row">
-            <div class="col-md-4 offset-4">
-                <div class="box-correction text-center py-3">
-                    <h2 class="pt-3">Notre obtenu</h2>
-                    <img src="<?=$asset?>/media/sourire.png" class="w-icon-reaction" alt=""/>
-                    <h2 class="py-3 text-success"><span>15/20</span></h2>
-                    <div class="d-flex">
-                        <div class="w-50">
-                            <a href="#" class="btn-green-transparent w-85">Correction</a>
-                        </div>
-                        <div class="w-50">
-                            <a href="#" class="btn-blue-transparent w-85">Refaire</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6 offset-3 avertis">
+
             </div>
         </div>
+    <div class="multisteps_form_panel step">
+        <div class="question_title text-center ">
+            <h1 class="animate__animated animate__fadeInRight animate_25ms font-25">Que signifie l'abreviation AEEK?</h1>
+        </div>
+        <div class="question_number text-center  text-white">
+            <span class="rounded-pill">Question 1 sur 2</span>
+        </div>
+        <div class="row pt-5 mt-4 form_items">
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="active step_1 animate__animated animate__fadeInRight animate_50ms">
+                        <input id="opt_1" type="radio" name="stp_1_select_option" value="1">
+                        <label for="opt_1" class="font-17">Association des Eleveurs Europeen de Kassere</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_1 animate__animated animate__fadeInRight animate_100ms">
+                        <input id="opt_2" type="radio" name="stp_1_select_option" value="2">
+                        <label for="opt_2" class="font-17">Association des Entrepreneurs Europeen de Kassere</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_1 animate__animated animate__fadeInRight animate_150ms">
+                        <input id="opt_3" type="radio" name="stp_1_select_option" value="3">
+                        <label for="opt_3" class="font-17">Association des Elèves et Etudiants de Kasséré</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_1 animate__animated animate__fadeInRight animate_200ms">
+                        <input id="opt_4" type="radio" name="stp_1_select_option" value="4">
+                        <label for="opt_4" class="font-17">Association des Elèves ou Etudiants de Kasséré</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="multisteps_form_panel step">
+        <div class="question_title text-center ">
+            <h1 class="animate__animated animate__fadeInRight animate_25ms  font-25">En quelle année l'AEEK a été crée ?</h1>
+        </div>
+        <div class="question_number text-center  text-white">
+            <span class="rounded-pill">Question 2 sur 2</span>
+        </div>
+        <div class="row pt-5 mt-4 form_items">
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_2 animate__animated animate__fadeInRight animate_50ms">
+                        <input id="opt_5" type="radio" name="stp_2_select_option" value="1">
+                        <label for="opt_5" class="font-17">1996</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_2 animate__animated animate__fadeInRight animate_100ms">
+                        <input id="opt_6" type="radio" name="stp_2_select_option" value="2">
+                        <label for="opt_6" class="font-17">19960</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_2 animate__animated animate__fadeInRight animate_150ms">
+                        <input id="opt_7" type="radio" name="stp_2_select_option" value="3">
+                        <label for="opt_7" class="font-17">2000</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="list-unstyled p-0">
+                    <li class="step_2 animate__animated animate__fadeInRight animate_200ms">
+                        <input id="opt_8" type="radio" name="stp_2_select_option" value="4">
+                        <label for="opt_8" class="font-17">1978</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form_btn">
+        <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
+        <a href="javascript:void(0);" type="button" class="prev_btn position-absolute  border-0" id="prevBtn" onclick="nextPrev(-1)"> <span><i class="fas fa-arrow-left"></i></span> Précédent</a>
+        <div class="save">
+            <button type="button" class="next_btn rounded-pill position-absolute  text-white" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
+        </div>
+    </div>
+    </form>
     </div>
 
 <?php require_once $layout.'/footer.php';?>
@@ -121,7 +215,7 @@ require_once $layout.'/header.php';
             document.getElementById("prevBtn").style.display = "inline";
         }
         if (n == (x.length - 1)) {
-            document.getElementById("nextBtn").innerHTML = "Terminer";
+            $('.save').html('<button type="submit" class="next_btn rounded-pill position-absolute  text-white">Terminer</button>');
         } else {
             document.getElementById("nextBtn").innerHTML = "Suivant";
         }
@@ -233,7 +327,7 @@ require_once $layout.'/header.php';
         document.cd.disp.value = dis(mins,secs); // setup additional displays here.
         if((mins == 0) && (secs == 0)) {
             window.alert("Time is up. Press OK to continue."); // change timeout message as required
-            // window.location = "yourpage.htm" // redirects to specified page once timer ends and ok button is pressed
+            window.location = "<?=$domaine?>/result"; // redirects to specified page once timer ends and ok button is pressed
         }else {
             cd = setTimeout("redo()",1000);
         }

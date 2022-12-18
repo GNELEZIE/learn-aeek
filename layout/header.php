@@ -70,6 +70,16 @@
             border: 0;
             font-weight: 700;
         }
+        .text-note{
+            color: #008000;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 6px;
+            box-shadow: rgb(0 0 0 / 24%) 0 3px 8px;
+            text-align: center;
+            border: 0;
+            font-weight: 700;
+        }
         .chrono-img{
             position: absolute;
             left: 363px;
@@ -121,6 +131,15 @@
         .w-85{
             width: 85%;
         }
+        .container, .container-lg, .container-md, .container-sm, .container-xl {
+            max-width: 1140px !important;
+        }
+
+
+
+
+
+
 
     </style>
 </head>
