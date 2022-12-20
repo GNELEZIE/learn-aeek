@@ -1,94 +1,79 @@
 <?php
 
-
+if(isset($doc[1]) and !isset($doc[2])){
+    $lis = $quiz->getQuizBySlug($doc[1]);
+    if($quizData = $lis->fetch()){
+    }else{
+        header('location:'.$domaine.'/error');
+        exit();
+    }
+}else{
+    header('location:'.$domaine.'/error');
+}
 
 require_once $controller.'/quiz.save.php';
+
+
+
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;
 require_once $layout.'/header.php';
-
 ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="logo_area pt-5 ps-5">
-                    <a href="#">
-                        <img src="<?=$asset?>/media/logol.png" alt="image-not-found">
-                    </a>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="logo_area pt-5 ps-5">
+                <a href="#">
+                    <img src="<?=$asset?>/media/logol.png" alt="image-not-found">
+                </a>
             </div>
         </div>
     </div>
-    <div class="container">
+</div>
+<div class="container">
     <form  name="cd" class="myFeuille bg-white position-relative overflow-hidden p-5" method="post">
-    <h2 class="text-center " style="position: relative">
-        <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
-        <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
-        <input type="hidden" name="tim" id="tim" value="102"/>
-    </h2>
-        <h1 class="animate__animated animate__fadeInRight animate_25ms font-25 text-center pt-4">Evaluation 1 : AEEK et fondement</h1>
-        <fieldset class="pb-3">
-            1- Que signifie AEEK
-            <div class="form-group">
-                <input type="radio" name="q1" id="q1" value="1"/>
-                <label for="q1">Association es mangeurs</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q1" id="q1" value="2"/>
-                <label for="q1">Association es entreprise </label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q1" id="q1" value="3"/>
-                <label for="q1">Association des élèves et étudiants de Kassséré </label>
-            </div>
-        </fieldset>
-        <fieldset class="pb-3">
-            2- Qui est le president de l'AEEK ?
-            <div class="form-group">
-                <input type="radio" name="q2" id="q2" value="1"/>
-                <label for="q2">Dramane</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q2" id="q2" value="2"/>
-                <label for="q2">Gnelezie</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q2" id="q2" value="3"/>
-                <label for="q2">Yahafe </label>
-            </div>
-        </fieldset>
-        <fieldset class="pb-3">
-            3- Qui est le sécretaire general de l'AEEK ?
-            <div class="form-group">
-                <input type="radio" name="q3" id="q3" value="1"/>
-                <label for="q3">Kone Zana</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q3" id="q3" value="2"/>
-                <label for="q3">Cissé Hamad</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q3" id="q3" value="3"/>
-                <label for="q1">Beh Brahiman</label>
-            </div>
-        </fieldset>
-        <fieldset class="pb-3">
-            4- Qui est Yafe de l'AEEK ?
-            <div class="form-group">
-                <input type="radio" name="q4" id="q4" value="1"/>
-                <label for="q3">Kone Zana</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q4" id="q4" value="2"/>
-                <label for="q3">Organusateur</label>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="q4" id="q" value="3"/>
-                <label for="q1">Beh Brahiman</label>
-            </div>
-        </fieldset>
+        <h2 class="text-center " style="position: relative">
+            <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
+            <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
+            <input type="hidden" name="tim" id="tim" value="<?=$quizData['duree']?>"/>
+        </h2>
+        <h1 class="animate__animated animate__fadeInRight animate_25ms font-25 text-center pt-4"><?=html_entity_decode(stripslashes($quizData['title'])) ?></h1>
+        <p class="animate__animated animate__fadeInRight animate_25ms font-17 text-center"><?=html_entity_decode(stripslashes($quizData['description'])) ?></p>
+        <?php
+        $nQ = 0;
+        $lst = $question->getQuestionById($quizData['id_quiz']);
+        while($qtData = $lst->fetch()){
+            $nQ ++;
+            $optList = $question_opt->getOptionByQuestionId($qtData['id_question']);
+            if($qtData['type_question'] == 0){
+                ?>
+                <fieldset class="pb-3">
+                    <?=$nQ .' - '.html_entity_decode(stripslashes($qtData['question'])) ?>
+                    <?php
+                    while($optData = $optList->fetch()){
+                        $nQ ++;
+                        ?>
+                        <div class="form-group">
+                            <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>"/>
+                            <label for="q<?=$optData['id_question_opt']?>"><?=html_entity_decode(stripslashes($optData['option']))?></label>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </fieldset>
+            <?php
+            }else if($qtData['type_question'] == 1){
+                ?>
+
+            <?php
+            }else{
+                ?>
+            <?php
+            }
+        }
+        ?>
 
         <div class="row pt-3">
             <div class="col-md-4 offset-4">
@@ -97,7 +82,7 @@ require_once $layout.'/header.php';
         </div>
 
     </form>
-    </div>
+</div>
 
 <?php require_once $layout.'/footer.php';?>
 
