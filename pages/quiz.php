@@ -56,7 +56,7 @@ require_once $layout.'/header.php';
                         $nQ ++;
                         ?>
                         <div class="form-group">
-                            <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>"/>
+                            <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>" value="<?=$optData['id_question_opt']?>"/>
                             <label for="q<?=$optData['id_question_opt']?>"><?=html_entity_decode(stripslashes($optData['option']))?></label>
                         </div>
                     <?php
