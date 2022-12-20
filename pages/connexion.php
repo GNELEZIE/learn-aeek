@@ -11,7 +11,7 @@ if($result['status'] == 'success'){
     $countryCode = '';
 }
 
-require_once $controller.'/client.connexion.php';
+require_once $controller.'/client.Connexion.php';
 $token = openssl_random_pseudo_bytes(16);
 $token = bin2hex($token);
 $_SESSION['myformkey'] = $token;

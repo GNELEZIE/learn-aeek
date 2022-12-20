@@ -82,8 +82,8 @@
         }
         .chrono-img{
             position: absolute;
-            left: 363px;
-            top: 10px;
+            left: 306px;
+            top: 9px;
         }
 
         .alert {
@@ -134,8 +134,31 @@
         .container, .container-lg, .container-md, .container-sm, .container-xl {
             max-width: 1140px !important;
         }
+        .myFeuille{
+            max-width: 56.25rem;
+            min-height: 45.9375rem;
+            margin: 5rem auto;
+            border-radius: 15px;
+        }
 
+        .btn-orange {
+            right: 55px;
+            bottom: 26px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            padding: 0.84375rem 4.375rem;
+            outline: none;
+            border: none;
+            background: -webkit-gradient(linear, left top, right top, from(#ff522f), to(#f09719));
+            background: linear-gradient(to right, #ff522f, #f09719);
+        }
 
+        fieldset {
+            border: 2px solid #efefef;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
 
 
 

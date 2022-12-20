@@ -1,7 +1,7 @@
 <?php
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'ivoire_box');
+define('DB_NAME', 'aeek_exam');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 

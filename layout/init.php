@@ -4,9 +4,12 @@ session_start();
 
 
 //Include Connexion
-include_once 'class/connexion.php';
+include_once 'class/Connexion.php';
 // appelle des class
-include_once "class/Client.class.php";
+include_once "class/Quiz.class.php";
+include_once "class/Question.class.php";
+include_once "class/Option.class.php";
+
 $cdn = 'cdn';
 $class = 'class';
 $controller = 'controller';
