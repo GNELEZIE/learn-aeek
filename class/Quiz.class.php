@@ -25,7 +25,27 @@ class Quiz
 
         return $rs;
     }
+    public function getQuizById($id){
+        $query = "SELECT * FROM quiz
+        WHERE id_quiz = :id ";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "id" => $id
+        ));
 
+        return $rs;
+    }
+    public function getQuizAndQuestionByQuizId($idQuiz){
+        $query = "SELECT * FROM quiz
+                  INNER JOIN  question ON quiz_id = id_quiz
+        WHERE id_quiz = :idQuiz";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "idQuiz" => $idQuiz
+        ));
+
+        return $rs;
+    }
 
 
 

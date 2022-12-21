@@ -39,7 +39,7 @@ require_once $layout.'/header.php';
                 <div class="box-correction text-center py-3">
                     <h2 class="pt-3">Notre obtenu</h2>
                     <img src="<?=$asset?>/media/sourire.png" class="w-icon-reaction" alt=""/>
-                    <h2 class="py-3 text-success"><span><?=$_SESSION['note']['note_final']?>/20</span></h2>
+                    <h2 class="py-3 text-success"><span><?=$_SESSION['note']['note_final'].'/'.$_SESSION['note']['total']?></span></h2>
                     <div class="d-flex">
                         <div class="w-50">
                             <a href="<?=$domaine?>/result/dev" class="btn-green-transparent w-85">Correction</a>

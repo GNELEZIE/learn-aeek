@@ -9,6 +9,8 @@ include_once 'class/Connexion.php';
 include_once "class/Quiz.class.php";
 include_once "class/Question.class.php";
 include_once "class/Option.class.php";
+include_once "class/Reponse.class.php";
+include_once "class/Reponse.deatail.php";
 
 $cdn = 'cdn';
 $class = 'class';

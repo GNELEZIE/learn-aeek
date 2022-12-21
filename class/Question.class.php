@@ -30,6 +30,16 @@ class Question
 
         return $rs;
     }
+    public function getSommePointByQuestId($id){
+        $query = "SELECT SUM(point) as sm FROM question
+        WHERE quiz_id = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "id" => $id
+        ));
+
+        return $rs;
+    }
 
 
 

@@ -11,7 +11,7 @@ if(isset($doc[1]) and !isset($doc[2])){
     header('location:'.$domaine.'/error');
 }
 
-require_once $controller.'/quiz.save.php';
+require_once $controller.'/reponse.save.php';
 
 
 
@@ -38,6 +38,8 @@ require_once $layout.'/header.php';
             <img src="<?=$asset?>/media/watch.png" class="chrono-img" alt=""/>
             <input class="text-chrono" id="txt" readonly="true" type="text" name="disp">
             <input type="hidden" name="tim" id="tim" value="<?=$quizData['duree']?>"/>
+            <input type="hidden" class="form-control" name="formkey" value="<?=$token?>">
+            <input type="hidden" class="form-control" name="quiz_id" value="<?=$quizData['id_quiz']?>">
         </h2>
         <h1 class="animate__animated animate__fadeInRight animate_25ms font-25 text-center pt-4"><?=html_entity_decode(stripslashes($quizData['title'])) ?></h1>
         <p class="animate__animated animate__fadeInRight animate_25ms font-17 text-center"><?=html_entity_decode(stripslashes($quizData['description'])) ?></p>
@@ -53,7 +55,6 @@ require_once $layout.'/header.php';
                     <?=$nQ .' - '.html_entity_decode(stripslashes($qtData['question'])) ?>
                     <?php
                     while($optData = $optList->fetch()){
-                        $nQ ++;
                         ?>
                         <div class="form-group">
                             <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>" value="<?=$optData['id_question_opt']?>"/>

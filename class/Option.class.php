@@ -9,6 +9,15 @@ class Question_opt
 
     //Read
 
+    public function getOptionById($id){
+        $query = "SELECT * FROM question_opt
+        WHERE id_question_opt = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "id" => $id
+        ));
+        return $rs;
+    }
     public function getOptionByQuestionId($quId){
         $query = "SELECT * FROM question_opt
         WHERE question_id = :quId ORDER BY id_question_opt DESC ";
@@ -19,7 +28,17 @@ class Question_opt
         return $rs;
     }
 
+    //Count
+    public function getSommePointByOptionId($id){
+        $query = "SELECT SUM(point) as sm FROM question_opt
+        WHERE id_question_opt  = :id";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "id" => $id
+        ));
 
+        return $rs;
+    }
 
 
 
