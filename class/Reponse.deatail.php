@@ -7,15 +7,16 @@ class Reponse_detail
         $this->bdd = bdd();
     }
 
-    public function addReponseDetail($questionId,$reponsId,$optionId,$point){
-        $query = "INSERT INTO reponse_detail(quest_id,reponse_id,option_id,point)
-            VALUES (:questionId,:reponsId,:optionId,:point)";
+    public function addReponseDetail($questionId,$reponsId,$optionId,$point,$isRight){
+        $query = "INSERT INTO reponse_detail(quest_id,reponse_id,option_id,point,is_right)
+            VALUES (:questionId,:reponsId,:optionId,:point,:isRight)";
         $rs = $this->bdd->prepare($query);
         $rs->execute(array(
             "questionId" => $questionId,
             "reponsId" => $reponsId,
             "optionId" => $optionId,
-            "point" => $point
+            "point" => $point,
+            "isRight" => $isRight
         ));
 
         $nb = $rs->rowCount();
@@ -25,7 +26,16 @@ class Reponse_detail
             return $r;
         }
     }
-
+//Read
+    public function getPointByOptId($quId){
+        $query = "SELECT * FROM reponse_detail
+        WHERE option_id = :quId ";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "quId" => $quId
+        ));
+        return $rs;
+    }
     //    Count
     public function getSommePointByDetailId($id){
         $query = "SELECT SUM(point) as sm FROM reponse_detail
@@ -38,15 +48,7 @@ class Reponse_detail
         return $rs;
     }
 
-    public function getPointByOptId($quId){
-        $query = "SELECT * FROM reponse_detail
-        WHERE option_id = :quId";
-        $rs = $this->bdd->prepare($query);
-        $rs->execute(array(
-            "quId" => $quId
-        ));
-        return $rs;
-    }
+
 
 
 

@@ -28,6 +28,19 @@ class Question_opt
         return $rs;
     }
 
+    public function getOpt($idQuiz){
+        $query = "SELECT * FROM question_opt
+                  INNER JOIN  reponse_detail ON option_id = id_question_opt
+        WHERE id_question_opt = :idQuiz";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "idQuiz" => $idQuiz
+        ));
+
+        return $rs;
+    }
+
+
     //Count
     public function getSommePointByOptionId($id){
         $query = "SELECT SUM(point) as sm FROM question_opt

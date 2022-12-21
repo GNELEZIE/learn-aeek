@@ -89,15 +89,27 @@ require_once $layout.'/header.php';
                                if($dataValid = $valiOp->fetch()){
                                    if($dataValid['option_id'] == $optData['id_question_opt']){
                                        $valid = 'checked';
+                                      if($dataValid['is_right'] == 1){
+                                          $col = 'text-success';
+                                      }else{
+                                          $col = 'text-danger';
+                                      }
                                    }else{
                                        $valid = '';
+                                       $col = '';
                                    }
+                               }else{
+                                   $valid = '';
+                                   $col = '';
                                }
+                                if($optData['is_right'] == 1){
+                                    $col = 'text-success';
+                                }
 
                                 ?>
                                 <div class="form-group">
-                                    <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>" value="<?=$optData['id_question_opt']?>" <?=$valid?>/>
-                                    <label for="q<?=$optData['id_question_opt']?>"><?=html_entity_decode(stripslashes($optData['option']))?></label>
+                                    <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>" value="<?=$optData['id_question_opt']?>" <?=$valid?> disabled/>
+                                    <label class="<?=$col?>" for="q<?=$optData['id_question_opt']?>"><?=html_entity_decode(stripslashes($optData['option']))?></label>
                                 </div>
                             <?php
                             }
@@ -117,7 +129,7 @@ require_once $layout.'/header.php';
 
                 <div class="row pt-3">
                     <div class="col-md-4 offset-4">
-                        <button class="next_btn rounded-pill text-white">Terminer</button>
+                        <a href="" class="next_btn rounded-pill text-white">Imprimer</a>
                     </div>
                 </div>
 

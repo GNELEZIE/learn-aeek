@@ -14,7 +14,7 @@ if(isset($_POST['quiz_id']) and isset($_SESSION['myformkey']) and isset($_POST['
             $questId = 'qt'.$dtQuestion['id_question'];
             $postedIdquest = $_POST[$questId];
             $optionPoint = $question_opt->getOptionById($postedIdquest)->fetch();
-            $add = $reponse_detail->addReponseDetail($dtQuestion['id_question'],$addQuiz,$postedIdquest,$optionPoint['opt_point']);
+            $add = $reponse_detail->addReponseDetail($dtQuestion['id_question'],$addQuiz,$postedIdquest,$optionPoint['opt_point'],$optionPoint['is_right']);
         }
         $note = $reponse_detail->getSommePointByDetailId($addQuiz)->fetch();
         $updNote = $reponse->udateNote($note['sm'],$addQuiz);
