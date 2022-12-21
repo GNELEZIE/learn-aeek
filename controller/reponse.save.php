@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['quiz_id']) and isset($_SESSION['myformkey']) and isset($_POST['formkey']) and $_SESSION['myformkey'] == $_POST['formkey']) {
     extract($_POST);
-
+    unset( $_SESSION['note']);
     $quiz_id = htmlentities(trim(addslashes(strip_tags($quiz_id))));
 
     $lists = $question->getQuestionById($quiz_id);
