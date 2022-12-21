@@ -164,6 +164,16 @@
 
 
 
+
+        @media(max-width: 767px) {
+            .offset-4,.offset-3,.offset-2 {
+                margin-left: 0;
+            }
+
+
+        }
+
+
     </style>
 </head>
 <body>

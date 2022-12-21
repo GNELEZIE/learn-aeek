@@ -25,6 +25,7 @@ if(isset($_POST['quiz_id']) and isset($_SESSION['myformkey']) and isset($_POST['
 
 
     $tabs = array(
+        'quiz_id' => $quiz_id,
         'total' => $total['sm'],
         'note_final' => $note['sm']
     );

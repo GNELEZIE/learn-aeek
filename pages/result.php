@@ -1,7 +1,18 @@
 <?php
 
-require_once $layout.'/header.php';
+if($_SESSION['note']['note_final'] <10){
+    $imag = 'fach.png';
+    $color = 'text-danger';
+}elseif($_SESSION['note']['note_final'] < 12){
+    $imag = 'pasc.png';
+    $color = 'text-success';
+}
+else{
+    $imag = 'sourire.png';
+    $color = 'text-success';
+}
 
+require_once $layout.'/header.php';
 ?>
 <head>
     <style>
@@ -32,20 +43,20 @@ require_once $layout.'/header.php';
         <?php
 
         if(isset($doc[0]) and !isset($doc[1])){
-//            unset($_SESSION['note']);
+            $quizDt = $quiz->getQuizById($_SESSION['note']['quiz_id'])->fetch();
         ?>
         <div class="row">
             <div class="col-md-4 offset-4">
                 <div class="box-correction text-center py-3">
-                    <h2 class="pt-3">Notre obtenu</h2>
-                    <img src="<?=$asset?>/media/sourire.png" class="w-icon-reaction" alt=""/>
-                    <h2 class="py-3 text-success"><span><?=$_SESSION['note']['note_final'].'/'.$_SESSION['note']['total']?></span></h2>
+                    <h2 class="pt-3">Notre obtenue</h2>
+                    <img src="<?=$asset?>/media/<?=$imag?>" class="w-icon-reaction" alt=""/>
+                    <h2 class="py-3 <?=$color?>"><span><?=$_SESSION['note']['note_final'].'/'.$_SESSION['note']['total']?></span></h2>
                     <div class="d-flex">
                         <div class="w-50">
-                            <a href="<?=$domaine?>/result/dev" class="btn-green-transparent w-85">Correction</a>
+                            <a href="<?=$domaine?>/result/<?=$quizDt['slug']?>" class="btn-green-transparent w-85">Correction</a>
                         </div>
                         <div class="w-50">
-                            <a href="#" class="btn-blue-transparent w-85">Refaire</a>
+                            <a href="<?=$domaine?>/quiz/<?=$quizDt['slug']?>" class="btn-blue-transparent w-85">Refaire</a>
                         </div>
                     </div>
                 </div>
@@ -53,54 +64,63 @@ require_once $layout.'/header.php';
         </div>
         <?php
         } else{
+            $quizData = $quiz->getQuizBySlug($doc[1])->fetch();
         ?>
-            <form  name="cd" class="multisteps_form bg-white position-relative overflow-hidden" id="wizard" method="POST">
-                <h2 class="text-center mt-5" style="position: relative">
-                    <span class="text-note">15/20</span>
+            <form  name="cd" class="myFeuille bg-white position-relative overflow-hidden p-5" method="post">
+                <h2 class="text-center " style="position: relative">
+                    <span class="text-chrono px-3">Note : <?=$_SESSION['note']['note_final'].'/'.$_SESSION['note']['total']?></span>
                 </h2>
-                <div class="row">
-                    <div class="col-md-6 offset-3 avertis">
+                <h1 class="animate__animated animate__fadeInRight animate_25ms font-25 text-center pt-4"><?=html_entity_decode(stripslashes($quizData['title'])) ?></h1>
+                <p class="animate__animated animate__fadeInRight animate_25ms font-17 text-center"><?=html_entity_decode(stripslashes($quizData['description'])) ?></p>
+                <?php
+                $nQ = 0;
 
-                    </div>
-                </div>
-                <div class="multisteps_form_panel step">
-                    <div class="question_title text-center ">
-                        <h1 class="animate__animated animate__fadeInRight animate_25ms font-25">Que signifie l'abreviation AEEK?</h1>
-                    </div>
-                    <div class="question_number text-center  text-white">
-                        <span class="rounded-pill">Question 1 sur 2</span>
-                    </div>
-                    <div class="row pt-5 mt-4 form_items">
-                        <div class="col-md-12">
-                            <div class="animate__animated animate__fadeInRight animate_50ms pt-5">
-                                <i class="">Réponse correct !</i>
-                                <p class="font-17 text-success"> <i class="fa fa-check"></i> Association des Elèves et Etudiants de Kasséré</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="multisteps_form_panel step">
-                    <div class="question_title text-center ">
-                        <h1 class="animate__animated animate__fadeInRight animate_25ms  font-25">En quelle année l'AEEK a été crée ?</h1>
-                    </div>
-                    <div class="question_number text-center  text-white">
-                        <span class="rounded-pill">Question 2 sur 2</span>
-                    </div>
-                    <div class="row pt-5 mt-4 form_items">
-                        <div class="col-md-12">
-                            <div class="animate__animated animate__fadeInRight animate_50ms pt-5">
-                                <i class="">Réponse correct !</i>
-                                <p class="font-17 text-success"> <i class="fa fa-check"></i> 1996</p>
-                                <small>L'AEEK a été crée en 1996 par les étudiants de Kasséré</small>
-                            </div>
-                        </div>
+                $lst = $question->getQuestionById($quizData['id_quiz']);
+                while($qtData = $lst->fetch()){
+                    $nQ ++;
+                    $optList = $question_opt->getOptionByQuestionId($qtData['id_question']);
+                    if($qtData['type_question'] == 0){
+                        ?>
+                        <fieldset class="pb-3">
+                            <?=$nQ .' - '.html_entity_decode(stripslashes($qtData['question'])) ?>
+                            <?php
+                            while($optData = $optList->fetch()){
+                                $valiOp = $reponse_detail->getPointByOptId($optData['id_question_opt']);
+                               if($dataValid = $valiOp->fetch()){
+                                   if($dataValid['option_id'] == $optData['id_question_opt']){
+                                       $valid = 'checked';
+                                   }else{
+                                       $valid = '';
+                                   }
+                               }
+
+                                ?>
+                                <div class="form-group">
+                                    <input type="radio" name="qt<?=$qtData['id_question']?>" id="q<?=$optData['id_question_opt']?>" value="<?=$optData['id_question_opt']?>" <?=$valid?>/>
+                                    <label for="q<?=$optData['id_question_opt']?>"><?=html_entity_decode(stripslashes($optData['option']))?></label>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </fieldset>
+                    <?php
+                    }else if($qtData['type_question'] == 1){
+                        ?>
+
+                    <?php
+                    }else{
+                        ?>
+                    <?php
+                    }
+                }
+                ?>
+
+                <div class="row pt-3">
+                    <div class="col-md-4 offset-4">
+                        <button class="next_btn rounded-pill text-white">Terminer</button>
                     </div>
                 </div>
 
-                <div class="form_btn">
-                    <button type="button" class="prev_btn position-absolute  border-0" id="prevBtn" onclick="nextPrev(-1)"> <span><i class="fas fa-arrow-left"></i></span> Précédent</button>
-                    <button type="button" class="next_btn rounded-pill position-absolute  text-white" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
-                </div>
             </form>
         <?php
         }

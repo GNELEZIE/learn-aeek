@@ -38,6 +38,15 @@ class Reponse_detail
         return $rs;
     }
 
+    public function getPointByOptId($quId){
+        $query = "SELECT * FROM reponse_detail
+        WHERE option_id = :quId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "quId" => $quId
+        ));
+        return $rs;
+    }
 
 
 
