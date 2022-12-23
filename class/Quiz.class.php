@@ -46,6 +46,18 @@ class Quiz
 
         return $rs;
     }
+    public function getQuizAndByQuizId($repId){
+        $query = "SELECT * FROM quiz
+        INNER JOIN  reponse ON quiz_id = id_quiz
+        INNER JOIN reponse_detail ON reponse_id = id_reponse
+        WHERE reponse_id = :repId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "repId" => $repId
+        ));
+
+        return $rs;
+    }
 
 
 

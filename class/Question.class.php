@@ -19,6 +19,19 @@ class Question
         return $rs;
     }
 
+    public function getOptByQuesId($idQuiz){
+        $query = "SELECT * FROM question
+                  INNER JOIN question_opt ON question_id = id_question
+        WHERE quiz_id = :idQuiz";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "idQuiz" => $idQuiz
+        ));
+
+        return $rs;
+    }
+
+
     //Count
     public function countQuestByQuizId($quzId){
         $query = "SELECT COUNT(*) as nb FROM question

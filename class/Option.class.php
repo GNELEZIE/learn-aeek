@@ -18,7 +18,19 @@ class Question_opt
         ));
         return $rs;
     }
-    public function getOptionByQuestionId($quId){
+
+    public function getOptionByQuestionIdAndRep($repId){
+        $query = "SELECT * FROM question_opt
+        INNER JOIN  reponse_detail ON quest_id = question_id
+        WHERE reponse_id = :repId";
+        $rs = $this->bdd->prepare($query);
+        $rs->execute(array(
+            "repId" => $repId
+        ));
+        return $rs;
+    }
+
+     public function getOptionByQuestionId($quId){
         $query = "SELECT * FROM question_opt
         WHERE question_id = :quId ORDER BY id_question_opt DESC ";
         $rs = $this->bdd->prepare($query);
@@ -27,6 +39,8 @@ class Question_opt
         ));
         return $rs;
     }
+
+
 
     public function getOpt($idQuiz){
         $query = "SELECT * FROM question_opt

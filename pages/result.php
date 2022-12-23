@@ -64,7 +64,8 @@ require_once $layout.'/header.php';
         </div>
         <?php
         } else{
-            $quizData = $quiz->getQuizBySlug($doc[1])->fetch();
+            $quizData = $quiz->getQuizAndByQuizId($_SESSION['note']['reponsId'])->fetch();
+//            $quizData = $quiz->getQuizBySlug($doc[1])->fetch();
         ?>
             <form  name="cd" class="myFeuille bg-white position-relative overflow-hidden p-5" method="post">
                 <h2 class="text-center " style="position: relative">
@@ -74,8 +75,7 @@ require_once $layout.'/header.php';
                 <p class="animate__animated animate__fadeInRight animate_25ms font-17 text-center"><?=html_entity_decode(stripslashes($quizData['description'])) ?></p>
                 <?php
                 $nQ = 0;
-
-                $lst = $question->getQuestionById($quizData['id_quiz']);
+                $lst = $question->getOptByQuesId($quizData['id_quiz']);
                 while($qtData = $lst->fetch()){
                     $nQ ++;
                     $optList = $question_opt->getOptionByQuestionId($qtData['id_question']);
@@ -85,11 +85,10 @@ require_once $layout.'/header.php';
                             <?=$nQ .' - '.html_entity_decode(stripslashes($qtData['question'])) ?>
                             <?php
                             while($optData = $optList->fetch()){
-                                $valiOp = $reponse_detail->getPointByOptId($optData['id_question_opt']);
-                               if($dataValid = $valiOp->fetch()){
-                                   if($dataValid['option_id'] == $optData['id_question_opt']){
+                                echo $qtData['id_question_opt'] .'=='. $optData['id_question_opt'];
+                                   if($qtData['id_question_opt'] == $optData['id_question_opt']){
                                        $valid = 'checked';
-                                      if($dataValid['is_right'] == 1){
+                                      if($quizData['is_right'] == 1){
                                           $col = 'text-success';
                                       }else{
                                           $col = 'text-danger';
@@ -98,10 +97,7 @@ require_once $layout.'/header.php';
                                        $valid = '';
                                        $col = '';
                                    }
-                               }else{
-                                   $valid = '';
-                                   $col = '';
-                               }
+
                                 if($optData['is_right'] == 1){
                                     $col = 'text-success';
                                 }
